@@ -1,0 +1,72 @@
+{% schema %}
+    {
+      "name": "Product Block",
+      "target": "section",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Product Customization"
+        },
+        {
+          "type": "text",
+          "id": "customization-field",
+          "label": "Customization Field",
+          "default": "Enter custom text here"
+        }
+      ]
+    }
+{% endschema %}
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 5px;
+    font-size: 16px;
+  }
+  
+  input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #555;
+  }
+</style>
+
+<div class="product-block">
+    {% comment %} <p>{{ block.settings.text }}</p> {% endcomment %}
+    <form action="/cart/add" method="post" enctype="multipart/form-data">
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" name="properties[Height]" value="" required>
+
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" name="properties[Weight]" value="" required>
+
+        <input type="submit" value="Submit">
+        <a href="#height-weight-popup" class="open-popup-link">{{ 'Enter Height and Weight' | t }}</a>
+        <a href="{{ 'index.js' | asset_url }}" class="btn">Link to Index</a>
+    </form>
+</div>
+    

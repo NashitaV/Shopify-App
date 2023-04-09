@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "@shopify/app": "3.44.1",
-    "@shopify/cli": "3.44.1"
+    "@shopify/cli": "3.44.1",
+    "tailwindcss": "^3.3.1"
   },
   "author": "nvnas"
 }

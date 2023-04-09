@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Popup Example</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <div class="main-content">
+    <h1>Welcome to my website!</h1>
+    <p>Click the button below to open the popup.</p>
+
+    <!-- Button that triggers popup -->
+    <button class="open-popup">Open Popup</button>
+
+    <!-- Popup -->
+    <div class="popup-overlay">
+      <div class="popup-container">
+        <h2>Popup Title</h2>
+        <p>Popup content goes here.</p>
+        <button class="close-popup">Close Popup</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const openPopupButton = document.querySelector('.open-popup');
+    const closePopupButton = document.querySelector('.close-popup');
+    const popupOverlay = document.querySelector('.popup-overlay');
+
+    // When the "Open Popup" button is clicked, show the popup
+    openPopupButton.addEventListener('click', function() {
+      popupOverlay.classList.add('show-popup');
+    });
+
+    // When the "Close Popup" button is clicked, hide the popup
+    closePopupButton.addEventListener('click', function() {
+      popupOverlay.classList.remove('show-popup');
+    });
+  </script>
+
+</body>
+</html>
+
+{% schema %}
+  {
+    "name": "Popup",
+    "target": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product Customization"
+      },
+      {
+        "type": "text",
+        "id": "customization-field",
+        "label": "Customization Field",
+        "default": "Enter custom text here"
+      }
+    ]
+  }
+{% endschema %}

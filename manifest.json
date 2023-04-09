@@ -1,0 +1,12 @@
+{
+    "name": "Product Customization",
+    "version": "1.0.0",
+    "type": "theme",
+    "configuration": {
+      "product.liquid": {
+        "url": "/product.liquid",
+        "load_method": "inline",
+        "inject": true
+      }
+    }
+}

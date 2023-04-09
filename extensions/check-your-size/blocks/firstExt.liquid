@@ -1,21 +1,349 @@
-<span> hello jhf hfkinirk </span>
-
-{% render "app_snippet"%}
 {% schema %}
-
-{
-    "name": "Hello world",
-    "target": "section",
-    "stylesheet": "app.css",
-    "javascript": "app.js",
-    "settings": [
-        {
-            "label": "Color",
-            "id":"color",
-            "type":"color",
-            "default":"#000000"
-        }
-    ]
-}
-
+            
+    {
+        "name": "Hello world",
+        "target": "section",
+        "settings": [
+            {
+                "label": "Color",
+                "id":"color",
+                "type":"color",
+                "default":"#000000"
+            }
+        ]
+    }
 {% endschema %}
+
+<head>
+    <title>{{ 'A Simple Popup ' }}</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+
+        html,
+        body {
+            background: gainsboro;
+        }
+
+        body {
+            counter-reset: section;
+            text-align: center;
+            background-color: white;
+            }
+            
+        .container {
+            position: relative;
+            top: 40px;
+            }
+            
+            
+        .container h1 {
+            font-family: "droid serif";
+            font-style: italic;
+            color: black;
+            text-align: center;
+            font-size: 1.6em;
+        }
+
+        .container h2,
+        .container span {
+            font-family: "Pt Sans", helvetica, sans-serif;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: black;
+            font-weight: 100;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+            
+        .container h3 {
+            font-family: "Pt Sans", helvetica, sans-serif;
+            text-align: center;
+            color: black;
+            font-weight: 100;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+        
+        .container h4 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            color: black;
+            font-weight: 100;
+            font-size: 45px;
+            margin-bottom: 5px;
+            margin-top: 100px;    
+        }
+            
+        .container form span:before {
+            counter-increment: section;
+            content: counter(section);
+            border: 2px solid #2266cc;
+            width: 40px;
+            height: 40px;
+            color: black;
+            display: inline-block;
+            border-radius: 50%;
+            line-height: 1.6em;
+            font-size: 1.5em;
+            position: relative;
+            left: -22px;
+            top: -11px;
+            background: white;
+        }
+            
+        form {
+            margin-top: 25px;
+            display: inline-block;
+        }
+        
+        .fields {
+            border-left: 2px solid #2266cc
+        }
+
+        .container span {
+            margin-bottom: 22px;
+            display: inline-block;
+        }
+        
+        .container span:last-child {
+            margin-bottom: -11px;
+        }
+        
+        input {
+            border: none;
+            outline: none;
+            transition: 0.5s;
+            display: inline-block;
+            height: 34px;
+            vertical-align: middle;
+            position: relative;
+            bottom: 14px;
+            right: 9px;
+            border-radius: 6px;
+            width: 220px;
+            box-sizing: border-box;
+        }
+            
+        input[type="button"] {
+            background: #3478dd;
+            color: white;
+            position: relative;
+            left: 9px;
+            top: 25px;
+            width: 100px;
+            cursor: pointer;  
+        }
+
+        input:hover {
+            transition: 0.5s;
+            scale: 1.05;
+        }
+            
+        #overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background: #999;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            z-index: 100;
+        }
+            
+        #popup {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: gainsboro;
+            width: 800px;
+            height: 500px;
+            margin-left: -400px;
+            
+            /*Half the value of width to center div*/
+            margin-top: -250px;
+            /*Half the value of height to center div*/
+            z-index: 200;
+            border-radius: 15px;
+        }
+            
+        #popup1 {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: #fff;
+            width: 800px;
+            height: 500px;
+            margin-left: -400px;
+            /*Half the value of width to center div*/
+            margin-top: -250px;
+            /*Half the value of height to center div*/
+            z-index: 200;
+            border-radius: 15px;
+        }
+            
+        #popupclose {
+            float: right;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #popupclose1 {
+            float: right;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .popupcontent {
+            padding: 10px;
+        }
+        
+        #button {
+            cursor: pointer;
+            }
+
+        #result{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: left;
+            color: black;
+            font-weight: 100;
+            font-size: 30px;
+            margin-bottom: 5px;
+            padding-top: 20px;
+            padding-left: 300px;
+        }
+            
+        #button3{
+            left: -335px;
+            top: 190px;
+        
+        }
+    </style> 
+</head>
+
+<body>
+    <div id="maincontent">
+            <button id="button" >{{ 'Find your Size' }}</button> 
+    </div>
+    <div id="overlay"></div>
+    <div id="popup">
+        <div class="popupcontrols">
+            <span style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                id="popupclose">{{ 'X' }}</span>
+        </div>
+        <div class="popupcontent">
+
+            <div class="container">
+                
+                <h1>{{ 'Cloth Size Predictor' }}</h1>
+                <h3>{{ 'We help you find the right size' }}</h3>
+                <h2>{{ 'Please enter your following details !' }}</h2>
+
+                <div action="" id="Predictor">
+                    <div class="fields">
+                        <span>
+                            <input placeholder="Height" id = "height" style="padding-left: 10px;" type="number" name ="height"/>
+                        </span>
+                        <br />
+                        <span>
+                            <input placeholder="Weight" id = "weight" style="padding-left: 10px;" type="number" name = "weight"/>
+                        </span>
+                    </div>
+                    <br />
+                    <div class="container">
+                        <div class="Predict">
+                            {% comment %} <input class="submit" value="{{ 'Predict Size' }}" type="button" id="button2" /> {% endcomment %}
+                            <button id = "button2"> {{ 'Predict Size' }}</button>
+                        </div>
+                        {% comment %} <h4>{{ 'Your recommended size is :' }}</h4>
+                        <div id = "result"></div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="popup1">
+        <div class="popupcontrols">
+            <span style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+            id="popupclose1">{{ 'X' }}</span>
+        </div>
+        <div class="popupcontent">
+            <div class="container">
+                <h4>{{ 'Your recommended size is :' }}</h4>
+                <div id = "result"></div>
+            </div>
+            <div class="Predict">
+                <input class="submit" value="{{ 'Start Over' }}" type="button" id="button3" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Variables
+        var closePopup = document.getElementById("popupclose");
+        var closePopup1 = document.getElementById("popupclose1");
+
+        var overlay = document.getElementById("overlay");
+        var popup = document.getElementById("popup");
+        var button = document.getElementById("button");
+        var button2 = document.getElementById("button2");
+        var button3 = document.getElementById("button3");
+        
+        
+        // Close Popup Event
+         closePopup.onclick = function () {
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+            };
+        closePopup1.onclick = function () {
+            overlay.style.display = 'none';
+            popup1.style.display = 'none';
+            popup.style.display = 'none';
+            };
+            
+        // Show Overlay and Popup
+        button.onclick = function () {
+            overlay.style.display = 'block';
+            popup.style.display = 'block';
+        }
+        
+        button2.onclick = function () {
+            overlay.style.display = 'block';
+            popup1.style.display = 'block';
+            calculateSize(); 
+        }
+            
+        button3.onclick = function () {
+            popup1.style.display = 'none';       
+        }
+        
+
+        function calculateSize() {
+            console.log('helelo')
+            const height = document.getElementById("height").value;
+            const weight = document.getElementById("weight").value;
+            const url = `https://dq3xyfrg47.execute-api.ap-south-1.amazonaws.com/default/pant-size?height=${height}&weight=${weight}`;
+
+            fetch(url)
+            .then(response => response.json())
+          .then(data => {
+              const pantSize = data.pant_size;
+            const shirtSize = data.shirt_size;
+            const resultDiv = document.getElementById("result");
+            console.log(pantSize,shirtSize)
+            resultDiv.innerHTML = `Shirt Size : ${shirtSize} <br>Pant Size  : ${pantSize} `;
+            })
+            .catch(error => {
+            console.error("Error fetching data:", error);
+            });
+            }
+            
+    </script>
+</body>
