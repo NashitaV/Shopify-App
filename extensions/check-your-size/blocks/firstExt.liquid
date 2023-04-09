@@ -33,16 +33,16 @@
             
         .container {
             position: relative;
-            top: 40px;
+            top: 20px;
             }
             
             
         .container h1 {
-            font-family: "droid serif";
+            font-family: "sans serif";
             font-style: italic;
             color: black;
             text-align: center;
-            font-size: 1.6em;
+            font-size: 40px;
         }
 
         .container h2,
@@ -61,18 +61,19 @@
         .container h3 {
             font-family: "Pt Sans", helvetica, sans-serif;
             text-align: center;
-            color: black;
+            color: #808080;
             font-weight: 100;
-            font-size: 30px;
+            font-size: 25px;
             margin-bottom: 5px;
+            letter-spacing:1.5px;
         }
         
         .container h4 {
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-family:  "Pt Sans", helvetica, sans-serif;
             text-align: center;
             color: black;
             font-weight: 100;
-            font-size: 45px;
+            font-size: 40px;
             margin-bottom: 5px;
             margin-top: 100px;    
         }
@@ -80,7 +81,7 @@
         .container div span:nth-of-type(1):before{
             counter-increment: section;
             content: "1";
-            border: 2px solid #2266cc;
+            border: 2px solid #808080;
             width: 40px;
             height: 40px;
             color: black;
@@ -97,7 +98,7 @@
         .container div span:nth-of-type(2):before{
             counter-increment: section;
             content: "2";
-            border: 2px solid #2266cc;
+            border: 2px solid #808080;
             width: 40px;
             height: 40px;
             color: black;
@@ -107,7 +108,7 @@
             font-size: 1.5em;
             position: relative;
             left: -22px;
-            top: -11px;
+            top:-11px;
             background: white;
         }
             
@@ -117,7 +118,9 @@
         }
         
         .fields {
-            border-left: 2px solid #2266cc
+            border-left: 2px solid #808080;
+            height:60px;
+            
         }
 
         .container span {
@@ -142,9 +145,20 @@
             border-radius: 6px;
             width: 220px;
             box-sizing: border-box;
+            background-color: gainsboro; 
         }
             
         input[type="button"] {
+            background: #3478dd;
+            color: white;
+            position: relative;
+            left: 9px;
+            top: 25px;
+            width: 100px;
+            cursor: pointer;  
+        }
+
+        #button1{
             background: #3478dd;
             color: white;
             position: relative;
@@ -158,6 +172,8 @@
             transition: 0.5s;
             scale: 1.05;
         }
+
+        
             
         #overlay {
             display: none;
@@ -165,7 +181,8 @@
             top: 0;
             bottom: 0;
             background: #999;
-            width: 100%;
+            width: 1
+            00%;
             height: 100%;
             opacity: 0.8;
             z-index: 100;
@@ -178,31 +195,56 @@
             right: 50%;
             margin: -50px 0 0 -50px;
             background: white;
-            width: 700px;
+            width: 800px;
             height: 500px;
-            margin-right: 150px;
+            {% comment %} margin-right: 0px; {% endcomment %}
+            {% comment %} border: 2px solid black; {% endcomment %}
             
             /*Half the value of width to center div*/
             margin-top: -250px;
             /*Half the value of height to center div*/
             z-index: 200;
             {% comment %} border-radius: 15px; {% endcomment %}
+
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 100), 0 6px 20px 0 rgba(0, 0, 0, 100);
+            text-align: center;
         }
+
             
         #popup1 {
             display: none;
             position: absolute;
             top: 50%;
-            left: 50%;
-            background: #fff;
+            right: 50%;
+            margin: -50px 0 0 -50px;
+            background: white;
             width: 800px;
             height: 500px;
-            margin-left: -400px;
+            {% comment %} margin-right: 0px; {% endcomment %}
+            {% comment %} border: 2px solid black; {% endcomment %}
+            
             /*Half the value of width to center div*/
             margin-top: -250px;
             /*Half the value of height to center div*/
             z-index: 200;
-            border-radius: 15px;
+            {% comment %} border-radius: 15px; {% endcomment %}
+
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;
+        }
+
+        .popupback{
+            position:fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top:0;
+            bottom:0;
+            left:0;
+            right;
+            background-color:(0,0,0,1);
+            cursor:pointer;
+            z-index: 100;
         }
             
         #popupclose {
@@ -233,20 +275,51 @@
             font-size: 30px;
             margin-bottom: 5px;
             padding-top: 20px;
-            padding-left: 300px;
+            padding-left: 280px;
         }
-            
+
+        #button2{
+            font-family:sans-serif;
+            letter-spacing:1px;
+            background:black;
+            color:white;
+            position:relative;
+            left:9px;                
+            width:130px;
+            height: 40px;
+            cursor:pointer; 
+            border-radius: 6px;  
+        }
+
         #button3{
+            font-family:sans-serif;
+            letter-spacing:1px;
             left: -335px;
-            top: 190px;
-        
+            top: 140px;
+            background:black;
+            color:white;
+            width:100px;
+            height: 40px;                        
         }
+
+       
     </style> 
 </head>
 
 <body>
-    <div id="maincontent">
-            <button id="button" >{{ 'Find your Size' }}</button> 
+    <div onclick = "on()" id="maincontent">
+            <button style = "background:gainsbro;
+                font-family:sans-serif;
+                letter-spacing:1.5px;
+                font-weight:500;
+                color:black;
+                position:relative;
+                left:0px;
+                top:10px; 
+                width:345px;
+                height: 50px;
+                cursor:pointer; 
+                " id="button" >{{ 'Find your Size' }}</button> 
     </div>
     <div id="overlay"></div>
     <div id="popup">
@@ -260,7 +333,8 @@
                 
                 <h1>{{ 'Size Predictor' }}</h1>
                 <h3>{{ 'We help you find the right size' }}</h3>
-                <h2>{{ 'Please enter your following details !' }}</h2>
+                <br>
+                {% comment %} <h2>{{ 'Please enter your following details !' }}</h2> {% endcomment %}
 
                 <div1 action="" id="Predictor">
                     <div class="fields">
@@ -269,14 +343,14 @@
                         </span>
                         <br />
                         <span>
-                            <input placeholder="Weight" id = "weight" style="padding-left: 10px;" type="number" name = "weight"/>
+                            <input placeholder="Weight" id = "weight" style="padding-left: 10px; " type="number" name = "weight"/>
                         </span>
                     </div>
                     <br />
                     <div class="container">
                         <div class="Predict">
                             {% comment %} <input class="submit" value="{{ 'Predict Size' }}" type="button" id="button2" /> {% endcomment %}
-                            <button id = "button2"> {{ 'Predict Size' }}</button>
+                            <input class="submit" value="{{ 'Predict Size' }}" type="button" id="button2" />
                         </div>
                         {% comment %} <h4>{{ 'Your recommended size is :' }}</h4>
                         <div id = "result"></div> {% endcomment %}
@@ -287,6 +361,7 @@
         </div>
 
     </div>
+    <div class ="popupback" id = "popupback"></div>
     <div id="popup1">
         <div class="popupcontrols">
             <span style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
@@ -294,7 +369,8 @@
         </div>
         <div class="popupcontent">
             <div class="container">
-                <h4>{{ 'Your recommended size is :' }}</h4>
+                <h4 style = "text-transform:uppercase;">{{ 'our recommended size is :' }}</h4>
+                
                 <div id = "result"></div>
             </div>
             <div class="Predict">
@@ -313,23 +389,30 @@
         var button = document.getElementById("button");
         var button2 = document.getElementById("button2");
         var button3 = document.getElementById("button3");
+        var popupback = document.getElementById("popupback");
         
         
         // Close Popup Event
          closePopup.onclick = function () {
             overlay.style.display = 'none';
             popup.style.display = 'none';
+            popupback.style.display = 'none';
             };
+
         closePopup1.onclick = function () {
             overlay.style.display = 'none';
             popup1.style.display = 'none';
             popup.style.display = 'none';
+            popupback.style.display = 'none';
             };
             
         // Show Overlay and Popup
         button.onclick = function () {
             overlay.style.display = 'block';
+            
             popup.style.display = 'block';
+            popupback.style.display = 'block';
+
         }
         
         button2.onclick = function () {
@@ -342,6 +425,17 @@
             popup1.style.display = 'none';       
         }
         
+
+
+        function on(){
+            document.getElementById("popupback").style.display="block";
+        }
+
+        function off(){
+            document.getElementById("popupback").style.display="none";
+        }
+
+
 
         function calculateSize() {
             console.log('helelo')
