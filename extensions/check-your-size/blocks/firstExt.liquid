@@ -53,7 +53,7 @@
         .container h2 {
             text-align: center;
             color: black;
-            font-weight: 100;
+            font-weight: 50;
             font-size: 2em;
             margin-bottom: 20px;
         }
@@ -77,9 +77,26 @@
             margin-top: 100px;    
         }
             
-        .container form span:before {
+        .container div span:nth-of-type(1):before{
             counter-increment: section;
-            content: counter(section);
+            content: "1";
+            border: 2px solid #2266cc;
+            width: 40px;
+            height: 40px;
+            color: black;
+            display: inline-block;
+            border-radius: 50%;
+            line-height: 1.6em;
+            font-size: 1.5em;
+            position: relative;
+            left: -22px;
+            top: -11px;
+            background: white;
+        }
+
+        .container div span:nth-of-type(2):before{
+            counter-increment: section;
+            content: "2";
             border: 2px solid #2266cc;
             width: 40px;
             height: 40px;
@@ -94,7 +111,7 @@
             background: white;
         }
             
-        form {
+        div1 {
             margin-top: 25px;
             display: inline-block;
         }
@@ -158,17 +175,18 @@
             display: none;
             position: absolute;
             top: 50%;
-            left: 50%;
-            background: gainsboro;
-            width: 800px;
+            right: 50%;
+            margin: -50px 0 0 -50px;
+            background: white;
+            width: 700px;
             height: 500px;
-            margin-left: -400px;
+            margin-right: 150px;
             
             /*Half the value of width to center div*/
             margin-top: -250px;
             /*Half the value of height to center div*/
             z-index: 200;
-            border-radius: 15px;
+            {% comment %} border-radius: 15px; {% endcomment %}
         }
             
         #popup1 {
@@ -240,11 +258,11 @@
 
             <div class="container">
                 
-                <h1>{{ 'Cloth Size Predictor' }}</h1>
+                <h1>{{ 'Size Predictor' }}</h1>
                 <h3>{{ 'We help you find the right size' }}</h3>
                 <h2>{{ 'Please enter your following details !' }}</h2>
 
-                <div action="" id="Predictor">
+                <div1 action="" id="Predictor">
                     <div class="fields">
                         <span>
                             <input placeholder="Height" id = "height" style="padding-left: 10px;" type="number" name ="height"/>
@@ -263,7 +281,7 @@
                         {% comment %} <h4>{{ 'Your recommended size is :' }}</h4>
                         <div id = "result"></div> {% endcomment %}
                     </div>
-                </div>
+                </div1>
             </div>
 
         </div>
