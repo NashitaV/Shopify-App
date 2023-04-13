@@ -1,459 +1,416 @@
 {% schema %}
-            
+{
+  "name": "Hello world",
+  "target": "section",
+  "settings": [
     {
-        "name": "Hello world",
-        "target": "section",
-        "settings": [
-            {
-                "label": "Color",
-                "id":"color",
-                "type":"color",
-                "default":"#000000"
-            }
-        ]
+      "label": "Color",
+      "id": "color",
+      "type": "color",
+      "default": "#000000"
     }
+  ]
+}
 {% endschema %}
 
 <head>
-    <title>{{ 'A Simple Popup ' }}</title>
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic);
-        @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+  >
+  <title>{{ 'A Simple Popup ' }}</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic);
+    @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
 
-        html,
-        body {
-            background: gainsboro;
-        }
+    html,
+    body {
+      background: gainsboro;
+    }
 
-        body {
-            counter-reset: section;
-            text-align: center;
-            background-color: white;
-            }
-            
-        .container {
-            position: relative;
-            top: 20px;
-            }
-            
-            
-        .container h1 {
-            font-family: "sans serif";
-            font-style: italic;
-            color: black;
-            text-align: center;
-            font-size: 40px;
-        }
+    body {
+      counter-reset: section;
+      text-align: center;
+      background-color: white;
+    }
 
-        .container h2,
-        .container span {
-            font-family: "Pt Sans", helvetica, sans-serif;
-        }
+    .container {
+      position: relative;
+      top: 20px;
+    }
 
-        .container h2 {
-            text-align: center;
-            color: black;
-            font-weight: 50;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-            
-        .container h3 {
-            font-family: "Pt Sans", helvetica, sans-serif;
-            text-align: center;
-            color: #808080;
-            font-weight: 100;
-            font-size: 25px;
-            margin-bottom: 5px;
-            letter-spacing:1.5px;
-        }
-        
-        .container h4 {
-            font-family:  "Pt Sans", helvetica, sans-serif;
-            text-align: center;
-            color: black;
-            font-weight: 100;
-            font-size: 40px;
-            margin-bottom: 5px;
-            margin-top: 100px;    
-        }
-            
-        .container div span:nth-of-type(1):before{
-            counter-increment: section;
-            content: "1";
-            border: 2px solid #808080;
-            width: 40px;
-            height: 40px;
-            color: black;
-            display: inline-block;
-            border-radius: 50%;
-            line-height: 1.6em;
-            font-size: 1.5em;
-            position: relative;
-            left: -22px;
-            top: -11px;
-            background: white;
-        }
+    .container h2,
+    .container span {
+      font-family: 'Pt Sans', helvetica, sans-serif;
+    }
 
-        .container div span:nth-of-type(2):before{
-            counter-increment: section;
-            content: "2";
-            border: 2px solid #808080;
-            width: 40px;
-            height: 40px;
-            color: black;
-            display: inline-block;
-            border-radius: 50%;
-            line-height: 1.6em;
-            font-size: 1.5em;
-            position: relative;
-            left: -22px;
-            top:-11px;
-            background: white;
-        }
-            
-        div1 {
-            margin-top: 25px;
-            display: inline-block;
-        }
-        
-        .fields {
-            border-left: 2px solid #808080;
-            height:60px;
-            
-        }
+    .container h2 {
+      text-align: center;
+      color: black;
+      font-weight: 50;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
 
-        .container span {
-            margin-bottom: 22px;
-            display: inline-block;
-        }
-        
-        .container span:last-child {
-            margin-bottom: -11px;
-        }
-        
-        input {
-            border: none;
-            outline: none;
-            transition: 0.5s;
-            display: inline-block;
-            height: 34px;
-            vertical-align: middle;
-            position: relative;
-            bottom: 14px;
-            right: 9px;
-            border-radius: 6px;
-            width: 220px;
-            box-sizing: border-box;
-            background-color: gainsboro; 
-        }
-            
-        input[type="button"] {
-            background: #3478dd;
-            color: white;
-            position: relative;
-            left: 9px;
-            top: 25px;
-            width: 100px;
-            cursor: pointer;  
-        }
+    .container h3 {
+      font-family: 'Pt Sans', helvetica, sans-serif;
+      text-align: center;
+      color: #808080;
+      font-weight: 100;
+      font-size: 25px;
+      margin-bottom: 5px;
+      letter-spacing: 1.5px;
+    }
 
-        #button1{
-            background: #3478dd;
-            color: white;
-            position: relative;
-            left: 9px;
-            top: 25px;
-            width: 100px;
-            cursor: pointer;  
-        }
+    .container h4 {
+      font-family: 'Pt Sans', helvetica, sans-serif;
+      text-align: center;
+      color: black;
+      font-weight: 100;
+      font-size: 35px;
+      margin-bottom: 5px;
+      margin-top: 20px;
+    }
 
-        input:hover {
-            transition: 0.5s;
-            scale: 1.05;
-        }
+    .container div span:nth-of-type(1):before {
+      counter-increment: section;
+      content: '1';
+      border: 3px solid #808080;
+      width: 40px;
+      height: 40px;
+      color: black;
+      display: inline-block;
+      border-radius: 50%;
+      line-height: 1.6em;
+      font-size: 1.5em;
+      position: relative;
+      left: -22px;
+      top: -11px;
+      background: white;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 1);
+    }
 
-        
-            
-        #overlay {
-            display: none;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            background: #999;
-            width: 1
-            00%;
-            height: 100%;
-            opacity: 0.8;
-            z-index: 100;
-        }
-            
-        #popup {
-            display: none;
-            position: absolute;
-            top: 50%;
-            right: 50%;
-            margin: -50px 0 0 -50px;
-            background: white;
-            width: 800px;
-            height: 500px;
-            {% comment %} margin-right: 0px; {% endcomment %}
-            {% comment %} border: 2px solid black; {% endcomment %}
-            
-            /*Half the value of width to center div*/
-            margin-top: -250px;
-            /*Half the value of height to center div*/
-            z-index: 200;
-            {% comment %} border-radius: 15px; {% endcomment %}
+    .container div span:nth-of-type(2):before {
+      counter-increment: section;
+      content: '2';
+      border: 3px solid #808080;
+      width: 40px;
+      height: 40px;
+      color: black;
+      display: inline-block;
+      border-radius: 50%;
+      line-height: 1.6em;
+      font-size: 1.5em;
+      position: relative;
+      left: -22px;
+      top: -11px;
+      background: white;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 1);
+    }
 
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 100), 0 6px 20px 0 rgba(0, 0, 0, 100);
-            text-align: center;
-        }
+    div1 {
+      margin-top: 25px;
+      display: inline-block;
+    }
 
-            
-        #popup1 {
-            display: none;
-            position: absolute;
-            top: 50%;
-            right: 50%;
-            margin: -50px 0 0 -50px;
-            background: white;
-            width: 800px;
-            height: 500px;
-            {% comment %} margin-right: 0px; {% endcomment %}
-            {% comment %} border: 2px solid black; {% endcomment %}
-            
-            /*Half the value of width to center div*/
-            margin-top: -250px;
-            /*Half the value of height to center div*/
-            z-index: 200;
-            {% comment %} border-radius: 15px; {% endcomment %}
+    .fields {
+      border-left: 3px solid #808080;
+      height: 60px;
+    }
 
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            text-align: center;
-        }
+    .container span {
+      margin-bottom: 22px;
+      display: inline-block;
+    }
 
-        .popupback{
-            position:fixed;
-            display: none;
-            width: 100%;
-            height: 100%;
-            top:0;
-            bottom:0;
-            left:0;
-            right;
-            background-color:(0,0,0,1);
-            cursor:pointer;
-            z-index: 100;
-        }
-            
-        #popupclose {
-            float: right;
-            padding: 10px;
-            cursor: pointer;
-        }
+    .container span:last-child {
+      margin-bottom: -11px;
+    }
 
-        #popupclose1 {
-            float: right;
-            padding: 10px;
-            cursor: pointer;
-        }
+    input {
+      border: none;
+      outline: none;
+      transition: 0.5s;
+      display: inline-block;
+      height: 34px;
+      vertical-align: middle;
+      position: relative;
+      bottom: 14px;
+      right: 9px;
+      border-radius: 6px;
+      width: 220px;
+      box-sizing: border-box;
+      background-color: gainsboro;
+      box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 1);
+    }
 
-        .popupcontent {
-            padding: 10px;
-        }
-        
-        #button {
-            cursor: pointer;
-            }
+    input[type='button'] {
+      background: #3478dd;
+      color: white;
+      position: relative;
+      left: 9px;
+      top: 25px;
+      width: 100px;
+      cursor: pointer;
+    }
 
-        #result{
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            text-align: left;
-            color: black;
-            font-weight: 100;
-            font-size: 30px;
-            margin-bottom: 5px;
-            padding-top: 20px;
-            padding-left: 280px;
-        }
+    #button1 {
+      background: #3478dd;
+      color: white;
+      position: relative;
+      left: 9px;
+      top: 25px;
+      width: 100px;
+      cursor: pointer;
+    }
 
-        #button2{
-            font-family:sans-serif;
-            letter-spacing:1px;
-            background:black;
-            color:white;
-            position:relative;
-            left:9px;                
-            width:130px;
-            height: 40px;
-            cursor:pointer; 
-            border-radius: 6px;  
-        }
+    input:hover {
+      transition: 0.5s;
+      scale: 1.05;
+    }
 
-        #button3{
-            font-family:sans-serif;
-            letter-spacing:1px;
-            left: -335px;
-            top: 140px;
-            background:black;
-            color:white;
-            width:100px;
-            height: 40px;                        
-        }
+    #overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background: #999;
+      width: 1 00%;
+      height: 100%;
+      opacity: 0.8;
+      z-index: 100;
+    }
 
-       
-    </style> 
+    #popup {
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      margin: -50px 0 0 -50px;
+      background: white;
+      width: 800px;
+      height: 500px;
+      margin-top: -250px;
+      z-index: 200;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 100), 0 6px 20px 0 rgba(0, 0, 0, 100);
+      text-align: center;
+    }
+
+    #popup1 {
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      margin: -50px 0 0 -50px;
+      background: white;
+      width: 800px;
+      height: 500px;
+      margin-top: -250px;
+      z-index: 200;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      text-align: center;
+    }
+
+    #popupclose {
+      float: right;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #popupclose1 {
+      float: right;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .popupcontent {
+      padding: 10px;
+    }
+
+    #button {
+      cursor: pointer;
+    }
+
+    #result {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      text-align: left;
+      color: black;
+      font-weight: 100;
+      font-size: 20px;
+      margin-bottom: 5px;
+      padding-top: 10px;
+      padding-left: 300px;
+    }
+
+    #button2 {
+      font-family: sans-serif;
+      letter-spacing: 1px;
+      background: black;
+      color: white;
+      position: relative;
+      left: 9px;
+      width: 130px;
+      height: 40px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    #button3 {
+      font-family: sans-serif;
+      letter-spacing: 1px;
+      left: -335px;
+      top: 130px;
+      background: black;
+      color: white;
+      width: 100px;
+      height: 40px;
+    }
+  </style>
 </head>
 
 <body>
-    <div onclick = "on()" id="maincontent">
-            <button style = "background:gainsbro;
-                font-family:sans-serif;
-                letter-spacing:1.5px;
-                font-weight:500;
-                color:black;
-                position:relative;
-                left:0px;
-                top:10px; 
-                width:345px;
-                height: 50px;
-                cursor:pointer; 
-                " id="button" >{{ 'Find your Size' }}</button> 
+  <div onclick="on()" id="maincontent">
+    <button
+      style="
+        background:gainsbro;
+        font-family:sans-serif;
+        letter-spacing:1.5px;
+        font-weight:500;
+        color:black;
+        position:relative;
+        left:0px;
+        top:10px;
+        width:345px;
+        height: 50px;
+        cursor:pointer;
+      "
+      id="button"
+    >
+      {{ 'Find your Size' }}
+    </button>
+  </div>
+  <div id="overlay"></div>
+  <div id="popup">
+    <div class="popupcontrols">
+      <span
+        style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+        id="popupclose"
+      >
+        {{- 'X' -}}
+      </span>
     </div>
-    <div id="overlay"></div>
-    <div id="popup">
-        <div class="popupcontrols">
-            <span style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                id="popupclose">{{ 'X' }}</span>
-        </div>
-        <div class="popupcontent">
-
-            <div class="container">
-                
-                <h1>{{ 'Size Predictor' }}</h1>
-                <h3>{{ 'We help you find the right size' }}</h3>
-                <br>
-                {% comment %} <h2>{{ 'Please enter your following details !' }}</h2> {% endcomment %}
-
-                <div1 action="" id="Predictor">
-                    <div class="fields">
-                        <span>
-                            <input placeholder="Height" id = "height" style="padding-left: 10px;" type="number" name ="height"/>
-                        </span>
-                        <br />
-                        <span>
-                            <input placeholder="Weight" id = "weight" style="padding-left: 10px; " type="number" name = "weight"/>
-                        </span>
-                    </div>
-                    <br />
-                    <div class="container">
-                        <div class="Predict">
-                            {% comment %} <input class="submit" value="{{ 'Predict Size' }}" type="button" id="button2" /> {% endcomment %}
-                            <input class="submit" value="{{ 'Predict Size' }}" type="button" id="button2" />
-                        </div>
-                        {% comment %} <h4>{{ 'Your recommended size is :' }}</h4>
-                        <div id = "result"></div> {% endcomment %}
-                    </div>
-                </div1>
-            </div>
-
-        </div>
-
-    </div>
-    <div class ="popupback" id = "popupback"></div>
-    <div id="popup1">
-        <div class="popupcontrols">
-            <span style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-            id="popupclose1">{{ 'X' }}</span>
-        </div>
-        <div class="popupcontent">
-            <div class="container">
-                <h4 style = "text-transform:uppercase;">{{ 'our recommended size is :' }}</h4>
-                
-                <div id = "result"></div>
-            </div>
+    <div class="popupcontent">
+      <div class="container">
+        <h1>{{ 'Size Predictor' }}</h1>
+        <h3>{{ 'Help us find the perfect fit, enter height and weight.' }}</h3>
+        <br>
+        <div1 action="" id="Predictor">
+          <div class="fields">
+            <span>
+              <input placeholder="Height" id="height" style="padding-left: 10px;" type="number" name="height">
+            </span>
+            <br>
+            <span>
+              <input placeholder="Weight" id="weight" style="padding-left: 10px; " type="number" name="weight">
+            </span>
+          </div>
+          <br>
+          <div class="container">
             <div class="Predict">
-                <input class="submit" value="{{ 'Start Over' }}" type="button" id="button3" />
+              <input class="submit" value="{{ 'Predict Size' }}" type="button" id="button2">
             </div>
-        </div>
+          </div>
+        </div1>
+      </div>
     </div>
+  </div>
+  <div class="popupback" id="popupback"></div>
+  <div id="popup1">
+    <div class="popupcontrols">
+      <span
+        style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+        id="popupclose1"
+      >
+        {{- 'X' -}}
+      </span>
+    </div>
+    <div class="popupcontent">
+      <div class="container">
+        <i style="font-size:100px; margin-top:40px;" class="material-symbols-outlined "> check_circle </i>
+        <h4 style="text-transform:uppercase;">{{ 'recommended size:' }}</h4>
 
-    <script>
-        // Initialize Variables
-        var closePopup = document.getElementById("popupclose");
-        var closePopup1 = document.getElementById("popupclose1");
+        <div id="result"></div>
+      </div>
+      <div class="Predict">
+        <input class="submit" value="{{ 'Start Over' }}" type="button" id="button3">
+      </div>
+    </div>
+  </div>
 
-        var overlay = document.getElementById("overlay");
-        var popup = document.getElementById("popup");
-        var button = document.getElementById("button");
-        var button2 = document.getElementById("button2");
-        var button3 = document.getElementById("button3");
-        var popupback = document.getElementById("popupback");
-        
-        
-        // Close Popup Event
-         closePopup.onclick = function () {
-            overlay.style.display = 'none';
-            popup.style.display = 'none';
-            popupback.style.display = 'none';
-            };
+  <script>
+    // Initialize Variables
+    var closePopup = document.getElementById('popupclose');
+    var closePopup1 = document.getElementById('popupclose1');
 
-        closePopup1.onclick = function () {
-            overlay.style.display = 'none';
-            popup1.style.display = 'none';
-            popup.style.display = 'none';
-            popupback.style.display = 'none';
-            };
-            
-        // Show Overlay and Popup
-        button.onclick = function () {
-            overlay.style.display = 'block';
-            
-            popup.style.display = 'block';
-            popupback.style.display = 'block';
+    var overlay = document.getElementById('overlay');
+    var popup = document.getElementById('popup');
+    var button = document.getElementById('button');
+    var button2 = document.getElementById('button2');
+    var button3 = document.getElementById('button3');
 
-        }
-        
-        button2.onclick = function () {
-            overlay.style.display = 'block';
-            popup1.style.display = 'block';
-            calculateSize(); 
-        }
-            
-        button3.onclick = function () {
-            popup1.style.display = 'none';       
-        }
-        
+    // Close Popup Event
+    closePopup.onclick = function () {
+      overlay.style.display = 'none';
+      popup.style.display = 'none';
+    };
 
-        document.getElementById("button2").addEventListener("click", function() 
-        {
-        document.getElementById("height").value = "";
-        document.getElementById("weight").value = "";
+    closePopup1.onclick = function () {
+      overlay.style.display = 'none';
+      popup1.style.display = 'none';
+      popup.style.display = 'none';
+    };
+
+    // Show Overlay and Popup
+    button.onclick = function () {
+      overlay.style.display = 'block';
+      popup.style.display = 'block';
+    };
+
+    button2.onclick = function () {
+      overlay.style.display = 'block';
+      popup1.style.display = 'block';
+      calculateSize();
+    };
+
+    button3.onclick = function () {
+      popup1.style.display = 'none';
+    };
+
+    document.getElementById('button2').addEventListener('click', function () {
+      document.getElementById('height').value = '';
+      document.getElementById('weight').value = '';
+    });
+
+    function calculateSize() {
+      console.log('helelo');
+      const height = document.getElementById('height').value;
+      const weight = document.getElementById('weight').value;
+      const url = `https://dq3xyfrg47.execute-api.ap-south-1.amazonaws.com/default/pant-size?height=${height}&weight=${weight}`;
+
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          const pantSize = data.pant_size;
+          const shirtSize = data.shirt_size;
+          const resultDiv = document.getElementById('result');
+          console.log(pantSize, shirtSize);
+          resultDiv.innerHTML = `Shirt Size : ${shirtSize} <br>Pant Size  : ${pantSize} `;
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
         });
-        
-
-
-
-        function calculateSize() {
-            console.log('helelo')
-            const height = document.getElementById("height").value;
-            const weight = document.getElementById("weight").value;
-            const url = `https://dq3xyfrg47.execute-api.ap-south-1.amazonaws.com/default/pant-size?height=${height}&weight=${weight}`;
-
-            fetch(url)
-            .then(response => response.json())
-          .then(data => {
-              const pantSize = data.pant_size;
-            const shirtSize = data.shirt_size;
-            const resultDiv = document.getElementById("result");
-            console.log(pantSize,shirtSize)
-            resultDiv.innerHTML = `Shirt Size : ${shirtSize} <br>Pant Size  : ${pantSize} `;
-            })
-            .catch(error => {
-            console.error("Error fetching data:", error);
-            });
-            }
-            
-    </script>
+    }
+  </script>
 </body>
